@@ -23,7 +23,12 @@ const convertToSurveyFormat = (csvMatrix = []) => {
     
     const CSV_HEADER_IMAGE_QUESTIONS = [
         'hero image',
-        'secondary image'
+        'secondary image 1',
+        'secondary image 2',
+        'secondary image 3',
+        'secondary image 4',
+        'secondary image 5',
+        'secondary image 6',
     ] 
 
     const pages = [];
@@ -87,7 +92,7 @@ app.get('/csv', (req, res) => {
         if (!err) {
             parse(data, {}, function(err, csvArray){
                 res.send({
-                    data: convertToSurveyFormat(csvArray.splice(0, 5))
+                    data: convertToSurveyFormat(csvArray)
                 })
             })
         } else {
