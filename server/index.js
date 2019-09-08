@@ -87,8 +87,12 @@ app.get('/', (req, res) => {
 });
 
 app.get('/csv', (req, res) => {
-    var fs = require('fs');
-    fs.readFile('/Users/makeensabree/dev-new/tableau-data-source-updater/test.csv', {encoding: 'utf-8'}, function(err,data){
+    var fs = require('fs'),
+    path = require('path'),    
+    filePath = path.join(__dirname, 'test.csv');
+    console.log(filePath)
+    console.log(__dirname)
+    fs.readFile(filePath, {encoding: 'utf-8'}, function(err,data){
         if (!err) {
             parse(data, {}, function(err, csvArray){
                 res.send({
