@@ -45,7 +45,7 @@ export default function SwitchListSecondary() {
     const [updatesMap, setUpdatesMap] = useState({});
 
     useEffect(() => {
-        fetch('http://localhost:3006/csv')
+        fetch('https://tableau-data-source-updater.herokuapp.com/csv')
         .then(function(response) {
             return response.json();
         })
@@ -55,7 +55,7 @@ export default function SwitchListSecondary() {
     }, []);
     
     const updateCsv = () => {
-        fetch('http://localhost:3006/csv', {
+        fetch('https://tableau-data-source-updater.herokuapp.com/csv', {
             method: 'POST',
             body: updatesMap
         })
