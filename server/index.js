@@ -1,5 +1,5 @@
 import path from 'path';
-import fs from 'fs';
+import fs from 'fs';   
 
 import React from 'react';
 import express from 'express';
@@ -87,11 +87,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/csv', (req, res) => {
-    var fs = require('fs'),
-    path = require('path'),    
-    filePath = path.join(__dirname, 'test.csv');
-    console.log(filePath)
-    console.log(__dirname)
+    const filePath = path.resolve('./public/test.csv');
     fs.readFile(filePath, {encoding: 'utf-8'}, function(err,data){
         if (!err) {
             parse(data, {}, function(err, csvArray){
